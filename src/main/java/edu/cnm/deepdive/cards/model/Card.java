@@ -1,5 +1,7 @@
 package edu.cnm.deepdive.cards.model;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Encapsulates the attributes of a playing card.
  * @param rank one of Ace through King.
@@ -7,4 +9,10 @@ package edu.cnm.deepdive.cards.model;
  */
 public record Card(Rank rank, Suit suit) {
 // TODO: 2026-10-09 Implement Comparable<Card> to support sorting back into shrinkwrap order
+
+  @NotNull
+  @Override
+  public String toString() {
+    return rank.toString() + suit.toString();
+  }
 }
