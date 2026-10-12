@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.cards
 
 import edu.cnm.deepdive.cards.model.Deck
+import edu.cnm.deepdive.cards.model.Rank
 
 class GoFish {
 
@@ -11,13 +12,12 @@ class GoFish {
         val playerHand = deck.deal(7)
         val computerHand = deck.deal(7)
         println("Cards have been dealt.")
-        println("Player hand")
-        println(playerHand)
+        GoFishGamePlay(playerHand, computerHand).playTurns()
 
     }
 
-}
+    }
 
-fun main() {
-    GoFish().play()
-}
+    fun main() {
+        GoFish().play()
+    }
