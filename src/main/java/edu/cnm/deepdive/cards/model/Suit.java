@@ -19,7 +19,8 @@ public enum Suit {
 
   @Override
   public String toString() {
-    return abbreviation;
+//    return abbreviation;
+    return name();
   }
 
   public String abbreviation() {

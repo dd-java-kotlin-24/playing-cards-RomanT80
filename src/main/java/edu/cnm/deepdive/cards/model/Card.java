@@ -20,5 +20,10 @@ public record Card(Rank rank, Suit suit) implements Comparable<Card> {
   public int compareTo(@NotNull Card otherCard) {
     return SHRINK_WRAP_Comparator.compare(this, otherCard);
   }
+
+  @Override
+  public @NotNull String toString() {
+    return "%s %s".formatted(rank, suit);
+  }
 }
 

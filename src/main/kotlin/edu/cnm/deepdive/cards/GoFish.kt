@@ -12,7 +12,7 @@ class GoFish {
         val playerHand = deck.deal(7)
         val computerHand = deck.deal(7)
         println("Cards have been dealt.")
-        GoFishGamePlay(playerHand, computerHand).playTurns()
+        GoFishGamePlay(playerHand, computerHand,deck).playTurns()
 
     }
 
