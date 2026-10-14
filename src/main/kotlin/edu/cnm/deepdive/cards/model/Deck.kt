@@ -5,7 +5,11 @@ import edu.cnm.deepdive.cards.model.Rank
 import edu.cnm.deepdive.cards.model.Suit
 
 class Deck() {
+
     private val cards: MutableList<Card> = mutableListOf()
+
+    val isEmpty: Boolean
+        get() = cards.isEmpty()
 
     init {
         for (suit: Suit in Suit.entries){
@@ -25,7 +29,5 @@ class Deck() {
     fun draw(): Card{
         return cards.removeFirst()
     }
-    fun isEmpty(): Boolean{
-        return cards.isEmpty()
-    }
+
 }

@@ -8,9 +8,18 @@ class Trick(val rng: RandomGenerator? = null) {
 
     val redPile: MutableList<Card> = mutableListOf()
     val blackPile: MutableList<Card> = mutableListOf()
+
     fun performMagic(deck: Deck) {
-        //TODO: Create Clear out redPile and blackPile
-        // TODO: If rng is not null, shuffle.
+        redPile.clear()
+        blackPile.clear()
+        if (rng != null) {
+            deck.shuffle(rng)
+        }
+        while (!deck.isEmpty) {
+        val selector: Card = deck.draw()
+            val next: Card = deck.draw()
+
+        }
         //TODO: While cards remain in deck:
         // 1. Draw a selector card
         // 2. If selector is black:

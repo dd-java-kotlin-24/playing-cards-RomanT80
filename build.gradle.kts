@@ -14,6 +14,8 @@
  *  limitations under the License.
  */
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.internal.classpath.Instrumented.systemProperty
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.kotlin.jvm)
@@ -53,4 +55,14 @@ tasks.javadoc {
         links("https://docs.oracle.com/en/java/javase/${javaVersion}/docs/api/")
     }
 }
-
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+        freeCompilerArgs.add("-Xjsr305=strict")
+    }
+}
+tasks.withType<Test>().configureEach {
+    systemProperty("file.encoding", "UTF-8")
+}
+tasks.withType<JavaCompile>().configureEach {
+    systemProperty("file.encoding", "UTF-8")
+}
